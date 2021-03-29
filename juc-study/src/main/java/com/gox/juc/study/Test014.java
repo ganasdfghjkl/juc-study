@@ -14,13 +14,13 @@ public class Test014 {
 
         for (int i = 0; i <100 ; i++) {
             list.add( new Thread(()->{
-                try {
-                    Thread.sleep(1000L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("------");
                 countDownLatch.countDown();
+//                try {
+//                    Thread.sleep(10000L);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+                System.out.println("------");
             }));
         }
         list.forEach(Thread::start);
