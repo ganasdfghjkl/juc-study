@@ -1,19 +1,22 @@
 package com.gox.juc.study;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Test012 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Lock lock = new ReentrantLock();
+        lock.lock();
+        System.out.println("asdasdasd");
+        lock.unlock();
 
+        lock.newCondition();
         new Thread(()->{
             try{
                 lock.lock();
                 System.out.println("start---------------");
-                Thread.sleep(5000L);
+                Thread.sleep(5000000L);
                 System.out.println("end-----------------");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -21,15 +24,16 @@ public class Test012 {
                 lock.unlock();
             }
         }).start();
+        Thread.sleep(1L);
+
         new Thread(()->{
-            boolean locked = false;
             try{
-                locked = lock.tryLock(10L, TimeUnit.SECONDS);
-                System.out.println("尝试获取锁："+locked);
-            } catch (InterruptedException e) {
+                lock.lock();
+                System.out.println("asdasdasd");
+            } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                if (locked)lock.unlock();
+                lock.unlock();
             }
         }).start();
 
