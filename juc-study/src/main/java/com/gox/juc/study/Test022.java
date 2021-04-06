@@ -48,18 +48,14 @@ public class Test022 {
 
     public static void main(String[] args) throws InterruptedException {
         Test022 test022 = new Test022();
-        for (int i = 0; i <3 ; i++) {
+        for (int i = 0; i <12 ; i++) {
             new Thread(()->{
-                for (int j = 0; j < 10 ; j++) {
                     test022.add();
-                }
             }).start();
         }
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 0; i <1; i++) {
             new Thread(()->{
-                for (int j = 0; j < 3 ; j++) {
                     test022.get();
-                }
             }).start();
         }
 

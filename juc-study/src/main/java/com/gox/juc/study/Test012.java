@@ -16,7 +16,7 @@ public class Test012 {
             try{
                 lock.lock();
                 System.out.println("start---------------");
-                Thread.sleep(5000000L);
+                Thread.sleep(5000L);
                 System.out.println("end-----------------");
             } catch (InterruptedException e) {
                 e.printStackTrace();
