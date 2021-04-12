@@ -23,7 +23,7 @@ public class Test022 {
             }
             System.out.println("添加一个数据");
             list.add(new Object());
-            r.signalAll();
+            r.signal();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -53,11 +53,11 @@ public class Test022 {
                     test022.add();
             }).start();
         }
-        for (int i = 0; i <1; i++) {
-            new Thread(()->{
-                    test022.get();
-            }).start();
-        }
+//        for (int i = 0; i <1; i++) {
+//            new Thread(()->{
+//                    test022.get();
+//            }).start();
+//        }
 
     }
 
