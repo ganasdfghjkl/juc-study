@@ -53,6 +53,8 @@ public class Test022 {
                     test022.add();
             }).start();
         }
+//
+//        System.out.println("aaaaaaaa");
 //        for (int i = 0; i <1; i++) {
 //            new Thread(()->{
 //                    test022.get();
